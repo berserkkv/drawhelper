@@ -1,0 +1,118 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  padding: 20px;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* Horizontal Layout for Vertical Squares and Line Color */
+.horizontal-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Reduce gap for compactness */
+}
+
+input[type="number"],
+input[type="color"] {
+  padding: 8px;
+  font-size: 14px;
+  width: auto; /* Allow inputs to shrink and fit */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+#canvas {
+  display: block;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Advanced Mode */
+#advSettings {
+  margin-top: 20px;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#advSettings label {
+  font-size: 14px;
+}
+
+#advToggle:checked + #advSettings {
+  display: block;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* Make inputs within horizontal-group more compact on mobile */
+  .horizontal-group {
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 8px; /* Reduce gap for a more compact look */
+  }
+
+  .horizontal-group input {
+    width: 100%; /* Make inputs take full width on small screens */
+  }
+
+  /* Stack elements vertically if needed on very small screens */
+  .horizontal-group label,
+  .horizontal-group input {
+    width: 100%;
+  }
+}
