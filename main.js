@@ -74,17 +74,15 @@ document.getElementById('draw').addEventListener('click', () => {
     const xEnd = margin + (Math.max(sx, ex) + 1) * squareSize;
     const yStart = margin + Math.min(sy, ey) * squareSize;
     const yEnd = margin + (Math.max(sy, ey) + 1) * squareSize;
-
-    const regionW = xEnd - xStart;
-    const regionH = yEnd - yStart;
-    const innerW = regionW / innerSquares;
-    const innerH = regionH / innerSquares;
+    const totalSquaresX = innerSquares * (ex - sx + 1);
+    const totalSquaresY = innerSquares * (ey - sy + 1);
+    const innerSquareSize = squareSize / innerSquares;
 
     ctx.strokeStyle = innerColor;
 
     // Draw vertical inner lines
-    for (let i = 0; i <= innerSquares; i++) {
-      const x = xStart + i * innerW;
+    for (let i = 0; i <= totalSquaresX; i++) {
+      const x = xStart + i * innerSquareSize;
       ctx.beginPath();
       ctx.moveTo(x, yStart);
       ctx.lineTo(x, yEnd);
@@ -92,8 +90,8 @@ document.getElementById('draw').addEventListener('click', () => {
     }
 
     // Draw horizontal inner lines
-    for (let i = 0; i <= innerSquares; i++) {
-      const y = yStart + i * innerH;
+    for (let i = 0; i <= totalSquaresY; i++) {
+      const y = yStart + i * innerSquareSize;
       ctx.beginPath();
       ctx.moveTo(xStart, y);
       ctx.lineTo(xEnd, y);
